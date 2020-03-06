@@ -1,6 +1,5 @@
 
 window.onload = () => {
-    let method = 'dynamic';
 
     let places = staticLoadPlaces();
     return renderPlaces(places);
@@ -15,6 +14,14 @@ function staticLoadPlaces() {
                 lng: 126.946923, // change here longitude if using static data
             }
         },
+
+        {
+          name: "home",
+          location: {
+              lat: 37.571218, // change here latitude if using static data
+              lng: 126.946923, // change here longitude if using static data
+          }
+        }
     ];
 }
 
@@ -31,7 +38,7 @@ function renderPlaces(places) {
         text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         text.setAttribute('title', place.name);
         text.setAttribute('href', 'http://www.example.com/');
-        text.setAttribute('scale', '15 15 15');
+        text.setAttribute('scale', '10 10 10');
 
         text.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
